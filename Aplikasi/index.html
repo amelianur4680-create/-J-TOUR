@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jelajah Jatim - Rekomendasi Wisata</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  </head>
+  <body class="light-mode">
+    <header class="main-header">
+      <h1>✨ J-TOUR ✨</h1>
+
+      <button id="theme-toggle">Mode Gelap 🌙</button>
+    </header>
+
+    <main class="container">
+      <div id="search-filter-container">
+        <input type="text" id="search-input" placeholder="Cari nama tempat atau kota..." />
+        <select id="kategori-select">
+          <option value="Semua">Semua Kategori</option>
+        </select>
+      </div>
+      <section id="rekomendasi-list">
+        <h2>Memuat Rekomendasi...</h2>
+      </section>
+    </main>
+
+    <script src="data.js"></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
