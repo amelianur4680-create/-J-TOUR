@@ -1,0 +1,201 @@
+/* style.css */
+
+/* 1. Definisi Variabel Warna (Mode Terang/Gelap) */
+:root {
+    /* DEFAULT: Light Mode Variables */
+    --background-color: #f4f4f9;
+    --text-color: #333;
+    --header-bg: #4a90e2;
+    --header-text: white;
+    --card-bg: white;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --button-bg: #4a90e2;
+    --button-text: white;
+}
+
+/* DARK MODE OVERRIDE */
+.dark-mode {
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --header-bg: #212121;
+    --header-text: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    --button-bg: #616161;
+    --button-text: #e0e0e0;
+}
+
+/* 2. Reset dan Gaya Dasar */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* 3. Header */
+.main-header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 20px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-header h1 {
+    font-weight: 600;
+}
+
+/* 4. Tombol Toggle */
+#theme-toggle {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+#theme-toggle:hover {
+    opacity: 0.9;
+}
+
+/* 5. Tampilan List Rekomendasi (Grid untuk responsif) */
+#rekomendasi-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding-top: 20px;
+    justify-content: start;
+    align-items: stretch;
+}
+
+.card-details p:first-child { 
+    margin-top: 10px;
+}
+
+/* 6. Card Rekomendasi */
+.rekomendasi-card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+    max-width: 360px;
+    display: flex; 
+    flex-direction: column;
+}
+
+.rekomendasi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#rekomendasi-list h2 {
+    grid-column: 1 / -1; 
+    text-align: center;
+    padding: 50px 0;
+    font-size: 1.5em;
+    font-weight: 500;
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.dark-mode #rekomendasi-list h2 {
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.category {
+    font-size: 0.8em;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.card-details p {
+    margin-bottom: 5px; 
+    line-height: 1.4; 
+    font-size: 0.9em;
+}
+
+.card-details strong {
+    font-weight: 600;
+}
+
+/* Container untuk Search dan Filter */
+#search-filter-container {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    display: flex; /* Gunakan flexbox */
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Gaya untuk Input Text dan Dropdown */
+#search-input{
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    flex-grow: 1; /* Biarkan input search mengambil ruang lebih */
+    max-width: 950px;
+    transition: border-color 0.3s;
+}
+
+#search-input:focus,
+#kategori-select:focus {
+    outline: none;
+    border-color: var(--header-bg); /* Highlight saat fokus */
+}
+
+/* Gaya Dropdown di Dark Mode */
+.dark-mode #search-input,
+.dark-mode #kategori-select {
+    border-color: #555;
+    background-color: #333;
+    color: var(--text-color);
+}
+
+/* Gaya untuk Harga */
+.price {
+    font-size: 1.1em;
+    color: #e91e63; /* Warna cerah untuk menyorot harga */
+    font-weight: 600;
+}
+
+.dark-mode .price {
+    color: #4CAF50; /* Hijau di dark mode */
+}
+#kategori-select {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    flex-grow: 1; /* Biarkan input search mengambil ruang lebih */
+    max-width: 170px;
+    transition: border-color 0.3s;
+}
